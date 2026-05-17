@@ -5,7 +5,8 @@ use chrono::Utc;
 pub fn generate_normal_aircraft(id: usize) -> AircraftState {
     let mut rng = rand::thread_rng();
     
-    let icao24 = format!("{:06X}", rng.gen::<u32>() & 0xFFFFFF);
+    let random_val = rng.gen_range(0..=u32::MAX);
+    let icao24 = format!("{:06X}", random_val & 0xFFFFFF);
     let callsign = format!("DLH{:03}", id + 100);
 
     AircraftState {

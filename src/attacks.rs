@@ -35,7 +35,8 @@ pub fn generate_flood(count: usize) -> Vec<AircraftState> {
     let mut flood_traffic = Vec::new();
 
     for i in 0..count {
-        let icao24 = format!("{:06X}", rng.gen::<u32>() & 0xFFFFFF);
+        let random_val = rng.gen_range(0..=u32::MAX);
+        let icao24 = format!("{:06X}", random_val & 0xFFFFFF);
         let callsign = format!("GHOST{:04}", i);
 
         flood_traffic.push(AircraftState {
