@@ -51,6 +51,21 @@ src/
 ```bash
 git clone https://github.com/Soukaynarafik/adsb.git
 ```
+## Utilisation
+Le projet utilise une interface en ligne de commande (CLI) permettant de basculer entre le mode de visualisation en direct et les différents modes d'attaque.
+
+### 1. Lancer le radar Web interactif (Visualisation en direct)
+Pour démarrer le serveur Web asynchrone et observer le déplacement des aéronefs ainsi que les anomalies en temps réel sur la carte :
+
+Bash
+cargo run -- live
+Une fois lancé, accédez à l'interface radar directement depuis votre navigateur à l'adresse : http://localhost:8080
+
+### 2. Simuler une attaque de type "Flood" (Injection massive de pistes fantômes)
+Pour générer un trafic saturé par de fausses cibles et exporter les vecteurs de suivi dans un fichier CSV :
+
+Bash
+cargo run -- flood --intensity 50
 
 ## Objectif pédagogique
 Ce projet a été réalisé dans un cadre pédagogique afin d’étudier :
